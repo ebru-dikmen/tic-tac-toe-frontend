@@ -1,1 +1,8 @@
-<button>{{ value }}</button>
+<!-- button for initial condition -->
+<button class=".text-indigo-lighter" [@flyInOut]="value" *ngIf="!value">{{ value }}</button>
+
+<!-- button for X condition -->
+<button [@flyInOut]="value" *ngIf="value == 'X'">{{ value }}</button>
+
+<!-- button for O condition -->
+<button [@flyInOut]="value" *ngIf="value == 'O'">{{ value }}</button>
