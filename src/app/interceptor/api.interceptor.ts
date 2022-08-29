@@ -1,10 +1,14 @@
 import { Injectable } from '@angular/core';
-import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor } from '@angular/common/http';
+import { HttpEvent, HttpHandler, HttpRequest } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { AuthService } from '../services/auth/auth.service';
 
 @Injectable()
-export class ApiInterceptor implements HttpInterceptor {
-  constructor() { }
+export class ApiInterceptor {
+
+  constructor(
+    private _auth: AuthService
+  ) { }
 
   // intercept HTTP request and modify HTTP headers
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
@@ -21,6 +25,13 @@ export class ApiInterceptor implements HttpInterceptor {
     request = request && request.clone(
       { headers: request.headers.set('Accept', 'application/json') }
     );
+
+    // add HTTP authorization header with player token
+    request = request && request.clone({
+      setHeaders: {
+        Authorization: `${this._auth.get('token')}`
+      }
+    });
 
     // continue with the remaining works
     return next && next.handle(request);

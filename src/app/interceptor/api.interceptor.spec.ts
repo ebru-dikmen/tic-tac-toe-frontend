@@ -1,14 +1,23 @@
 import { HttpHeaders } from '@angular/common/http';
 import { TestBed } from '@angular/core/testing';
+import { AuthService } from '../services/auth/auth.service';
 import { ApiInterceptor } from './api.interceptor';
 
+let mockAuthSerice: any = {
+  save: () => null,
+  get: () => null,
+  clear: () => undefined
+};
+
 describe('ApiInterceptor', () => {
+
   let interceptor: ApiInterceptor;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [
-        ApiInterceptor
+        ApiInterceptor,
+        { provide: AuthService, useValue: mockAuthSerice }
       ]
     });
 
@@ -24,7 +33,9 @@ describe('ApiInterceptor', () => {
     const request = {
       clone(update: {}) { },
       method: "POST",
-      headers: new HttpHeaders(),
+      headers: new HttpHeaders({
+        'Authorization': 'my-auth-token'
+      }),
       body: {},
       url: {
         "raw": "http://localhost:3535/login",
