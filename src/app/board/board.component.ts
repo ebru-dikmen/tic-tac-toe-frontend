@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from '../services/auth/auth.service';
 
 @Component({
   selector: 'app-board',
@@ -14,7 +16,10 @@ export class BoardComponent implements OnInit {
   gameOver: boolean | undefined;
   winner: string | null | undefined;
 
-  constructor() { }
+  constructor(
+    private _auth: AuthService,
+    private _router: Router
+  ) { }
 
   // trigers new game button action
   ngOnInit() {
@@ -105,5 +110,15 @@ export class BoardComponent implements OnInit {
   // close button action for win and game over modal
   onHide() {
     this.startNewGame();
+  }
+
+  // logout button action
+  logout() {
+
+    // clear localStorage
+    this._auth.clear()
+
+    // navigate to login page
+    this._router.navigate(['login']);
   }
 }

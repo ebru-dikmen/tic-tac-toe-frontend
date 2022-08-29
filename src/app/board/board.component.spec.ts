@@ -2,6 +2,9 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { CellComponent } from '../cell/cell.component';
 import { BoardComponent } from './board.component';
+import { RouterTestingModule } from '@angular/router/testing';
+import { LoginComponent } from '../login/login.component';
+import { RegisterComponent } from '../register/register.component';
 
 describe('BoardComponent', () => {
   let component: BoardComponent;
@@ -16,6 +19,13 @@ describe('BoardComponent', () => {
       imports: [
         BrowserAnimationsModule,
         NoopAnimationsModule,
+        RouterTestingModule.withRoutes(
+          [
+            { path: 'register', component: RegisterComponent },
+            { path: 'login', component: LoginComponent },
+            { path: 'board', component: BoardComponent }
+          ]
+        )
       ],
     }).compileComponents();
 
@@ -49,15 +59,15 @@ describe('BoardComponent', () => {
   it('should fire to makeMove function', () => {
     spyOn(component, 'makeMove').and.callThrough();
     const cases = [{ idX: -1, isNext: true },
-    { idX: 0, isNext: true },
-    { idX: 1, isNext: true },
-    { idX: null, isNext: true },
-    { idX: undefined, isNext: true },
-    { idX: -1, isNext: false },
-    { idX: 0, isNext: false },
-    { idX: 1, isNext: false },
-    { idX: null, isNext: false },
-    { idX: undefined, isNext: false },
+      { idX: 0, isNext: true },
+      { idX: 1, isNext: true },
+      { idX: null, isNext: true },
+      { idX: undefined, isNext: true },
+      { idX: -1, isNext: false },
+      { idX: 0, isNext: false },
+      { idX: 1, isNext: false },
+      { idX: null, isNext: false },
+      { idX: undefined, isNext: false },
     { idX: undefined, isNext: undefined }];
     cases.forEach(data => {
       component.xIsNext = data.isNext;
@@ -108,5 +118,11 @@ describe('BoardComponent', () => {
     spyOn(component, 'player').and.callThrough();
     component.player();
     expect(component.player).toHaveBeenCalled();
+  });
+
+  it('should fired logout function', () => {
+    spyOn(component, 'logout').and.callThrough();
+    component.logout();
+    expect(component.logout).toHaveBeenCalled();
   });
 });
