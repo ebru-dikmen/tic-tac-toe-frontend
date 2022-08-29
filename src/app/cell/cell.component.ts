@@ -1,13 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-cell',
   templateUrl: './cell.component.html',
   styleUrls: ['./cell.component.scss']
 })
-export class CellComponent implements OnInit {
+export class CellComponent {
 
-  constructor() { }
-
-  ngOnInit(): void { }
+  // value for cell state
+  // initial state is X
+  @Input() value = "X";
 }

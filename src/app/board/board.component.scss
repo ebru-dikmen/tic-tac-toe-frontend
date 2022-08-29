@@ -1,0 +1,11 @@
+main {
+    display: grid;
+    grid-template-columns: 10em 10em 10em;
+    grid-gap: 0px;
+    margin-top: 0.5em;
+}
+
+app-cell {
+    border: 1px gray solid;
+    height: 10em;
+}
