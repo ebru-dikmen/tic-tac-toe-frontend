@@ -1,27 +1,63 @@
-# TicTacToe
+# Tic-Tac- Toe
+- backend application: https://github.com/ebru-dikmen/tic-tac-toe-backend
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.1.
+## General Structure
+- Angular Framework (V14.1.3) was used for the Frontend side, and Express.js was used for the Backend side.
+- The project consists of Register, Login, and Board pages.
+- Firstly, you must register to the system to play a game of Tic Tac Toe.
+- After you register to the system, the token is defined for you by the backend side. That duration time is 30 minutes.
+- You can log in to the system again using the same password and username. (Session Management)
+- Tailwind components are used for UI design.
+- The UI design of the game was done using Responsive Design.
+- Angular Animation was added for the display of the board better.
+- Test-driven Development (TDD) was done with Jasmine and Karma. (Frontend side)
+- Test-driven development (TDD) was done with Mocha and Chai. (Backend side)
+- Data is kept in a JSON database.
+- Passwords are kept encrypted in the JSON database.
+- Example requests of REST API  are added into the repository as a Postman collection file. (tic-tac-toe.backend.postman_collection)
 
-## Development server
+## Running Project
+You should run these commands on the terminal in order.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- Frontend Side
+1. install dependencies
+```
+npm install
+```
+2. install Angular CLI
+```
+npm install -g @angular/cli
+```
+3. serve the application
+```
+ng serve
+```
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- Backend Side
+1. install dependencies
+```
+npm install
+```
+2. serve the application
+```
+node index.js
+```
 
 ## Running unit tests
+- Frontend Side
+  * You can see the overall coverage of the application on the terminal.
+  * Also, you can see coverage of each component after opening "./coverage/index.html".
+```
+ng test  --code-coverage
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- Backend Side
+1. run backend application
+```
+node index.js
+```
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+2. run backend tests
+```
+npm run test
+```
