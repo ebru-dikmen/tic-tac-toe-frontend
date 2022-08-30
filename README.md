@@ -1,4 +1,4 @@
-# Tic-Tac- Toe
+# Tic-Tac-Toe
 - backend application: https://github.com/ebru-dikmen/tic-tac-toe-backend
 
 ## General Structure
