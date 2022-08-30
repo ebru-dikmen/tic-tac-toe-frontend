@@ -3,6 +3,13 @@ main {
     grid-template-columns: 10em 10em 10em;
     grid-gap: 0px;
     margin-top: 0.5em;
+
+}
+
+@media only screen and (max-width: 500px) {
+    main {
+        grid-template-columns: 6em 6em 6em;
+    }
 }
 
 app-cell {
