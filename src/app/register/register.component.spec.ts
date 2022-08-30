@@ -1,9 +1,8 @@
 
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { NgForm } from '@angular/forms';
-import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
-import { of, subscribeOn } from 'rxjs';
+import { of } from 'rxjs';
 import { BoardComponent } from '../board/board.component';
 import { LoginComponent } from '../login/login.component';
 import { ApiService } from '../services/api/api.service';

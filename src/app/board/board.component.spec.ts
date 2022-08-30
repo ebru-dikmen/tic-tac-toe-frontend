@@ -4,7 +4,6 @@ import { CellComponent } from '../cell/cell.component';
 import { BoardComponent } from './board.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { LoginComponent } from '../login/login.component';
-import { RegisterComponent } from '../register/register.component';
 
 describe('BoardComponent', () => {
   let component: BoardComponent;
@@ -21,9 +20,7 @@ describe('BoardComponent', () => {
         NoopAnimationsModule,
         RouterTestingModule.withRoutes(
           [
-            { path: 'register', component: RegisterComponent },
             { path: 'login', component: LoginComponent },
-            { path: 'board', component: BoardComponent }
           ]
         )
       ],

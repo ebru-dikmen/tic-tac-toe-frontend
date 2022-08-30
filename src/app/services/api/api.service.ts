@@ -19,6 +19,7 @@ export class ApiService {
     // generate URL
     let url = this.baseUrl + path;
 
+    /* istanbul ignore next */
     return this._http.post(url, data).pipe(
 
       // map response data

@@ -29,7 +29,6 @@ describe('LoginComponent', () => {
         RouterTestingModule.withRoutes(
           [
             { path: 'register', component: RegisterComponent },
-            { path: 'login', component: LoginComponent },
             { path: 'board', component: BoardComponent }
           ]
         )],
