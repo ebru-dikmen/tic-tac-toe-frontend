@@ -41,4 +41,13 @@ describe('AuthGuard', () => {
     guard.canActivate(next, state);
     expect(guard.canActivate).toHaveBeenCalled();
   }));
+
+  it('should fire to canActivate function-2', (() => {
+    spyOn(guard, 'canActivate').and.callThrough();
+    spyOn(mockAuthSerice, 'get').and.returnValue(false);
+    const next = {} as any;
+    const state = {} as any;
+    guard.canActivate(next, state);
+    expect(guard.canActivate).toHaveBeenCalled();
+  }));
 });
